@@ -1,0 +1,211 @@
+--> SQL is a short-form of the structured query language.This database language is mainly designed for maintaining the data in relational database management systems. It is a special tool used by data professionals for handling structured data (data which is stored in the form of tables). It is also designed for stream processing in RDBMS.
+
+--> Structured Query Language contains the following four components in its process:
+Query Dispatcher
+Optimization Engines
+Classic Query Engine
+SQL Query Engine,
+
+--> Advantages of SQL are:
+1) no programming needed.
+2)High speed query processing-A large amount of data is accessed quickly and efficiently from the database by using SQL queries
+3) standardized language, portability, interactive language, 
+4)more than one data view-The SQL language also helps in making the multiple views of the database structure for the different database users.
+
+Disadvantages of sql are:
+1)cost -The operation cost of some SQL versions is high. That's why some programmers cannot use the Structured Query Language.
+2) Interface is complex.
+3)partial database control- The business rules are hidden. So, the data professionals and users who are using this query language cannot have full database control.
+
+--> datatypes of SQL: String datatype:
+1) CHAR(Size)
+It is used to specify a fixed length string that can contain numbers, letters, and special characters. Its size can be 0 to 255 characters. Default is 1.
+2)VARCHAR(Size)
+It is used to specify a variable length string that can contain numbers, letters, and special characters. Its size can be from 0 to 65535 characters.
+3) BINARY(Size)
+It is equal to CHAR() but stores binary byte strings. Its size parameter specifies the column length in the bytes. Default is 1
+4) TEXT(Size)
+It holds a string that can contain a maximum length of 255 characters.
+
+--> Numeric datatype :
+1) BIT(Size)
+It is used for a bit-value type. The number of bits per value is specified in size. Its size can be 1 to 64. The default value is 1.
+2)INT(size)
+It is used for the integer value. Its signed range varies from -2147483648 to 2147483647 and unsigned range varies from 0 to 4294967295. The size parameter specifies the max display width that is 255.
+3) INTEGER(size)
+It is equal to INT(size).
+4) FLOAT(size, d)
+It is used to specify a floating point number.
+5) BOOL
+It is used to specify Boolean values true and false. Zero is considered as false, and nonzero values are considered as true.
+
+--> Date and time datatypes:
+1)DATE
+It is used to specify date format YYYY-MM-DD. Its supported range is from '1000-01-01' to '9999-12-31'.
+2)DATETIME(fsp)
+It is used to specify date and time combination. Its format is YYYY-MM-DD hh:mm:ss. Its supported range is from '1000-01-01 00:00:00' to 9999-12-31 23:59:59'.
+
+--> What is SQL Operator? 
+Note: SQL operators are used for filtering the table's data by a specific condition in the SQL statement.
+The SQL reserved words and characters are called operators, which are used with a WHERE clause in a SQL query. In SQL, an operator can either be a unary or binary operator. The unary operator uses only one operand for performing the unary operation, whereas the binary operator uses two operands for performing the binary operation.
+
+--> What is the Precedence of SQL Operator?
+It is the sequence in which the SQL evaluates the different operators in the same expression. 
+1)Exponentiation operator -it contain highest precendence . and conjuction operation OR contain lowest
+2)Identity operator, Negation operator +-
+3) Multiplication operator, Division operator
+4) Addition (plus) operator, subtraction (minus) operator, String Concatenation operator + - ||
+5) Comparison Operators =, !=, <, >, <=, >=, IS NULL, LIKE, BETWEEN, IN
+6) Logical negation operator NOT, logical operators - AND , OR, NOT, BETWEEN, ALL, IN, LIKE, ANY
+7) Conjunction operator && or AND, inclusion operator - OR
+
+--> SET operator - combine a similar type of data from two or more SQL database tables. It mixes the result, which is extracted from two or more SQL queries, into a single result.
+1) SQL UNION - The data type and the number of columns must be the same for each SELECT statement used with the UNION operator. This operator does not show the duplicate records in the output table.
+2) SQL UNION ALL -The SQL Union Operator is the same as the UNION operator, but the only difference is that it all record including duplicates.
+3) SQL INTERSECT - SQL INTERSECT operator combines two select statements and returns only the dataset that is common in both the statements.
+4) SQL MINUS - The SQL Minus Operator combines the result of two or more SELECT statements and shows only the results from the first data set.
+
+
+
+
+MYSQL:
+
+mysql -u root --port 3307 -p
+
+show databases;
+create databse [dbname];
+drop database [dbname];
+use [dbname];
+MySQL copy or clone database is a feature that allows us to create a duplicate copy of an existing database, in case of db lost/failure ,the copy of db happens in 3 steps as:
+First, use the CREATE DATABASE statement to create a new database.
+Second, store the data to an SQL file. We can give any name to this file, but it must end with a .sql extension.
+Third, export all the database objects along with its data to copy using the mysqldump tool and then import this file into the new database. - mysqldump -u root -p testdb > D:\Database_backup\testdb.sql  
+
+
+--create table: A table is used to organize data in the form of rows and columns and used for both storing and displaying records in the structure format, it require 3 things like, name of table, name of fields, definition of each field. 
+mysql is case sensitive
+create table [tablename](col1 coltype(size) extra);
+--> points noted : Here, NOT NULL is a field attribute, and it is used because we don't want this field to be NULL. If we try to create a record with a NULL value, then MySQL will raise an error. The field attribute AUTO_INCREMENT specifies MySQL to go ahead and add the next available number to the id field. PRIMARY KEY is used to define a column's uniqueness. We can use multiple columns separated by a comma to define a primary key.
+
+--describe table
+desc [tablename] (command to see the information or structure of the newly created table) ;show tables; (to see the newly created table)
+
+--alter the table
+--if to add column 
+alter table [tablename] add[column_name] datatype;
+
+--modify column
+aletr table [tablename] MODIFY [column_name] [newdtata_type];
+
+--rename column
+aletr table[tablename] rename column [oldcolname] TO [newcolname];
+ 
+--drop column
+alter table[tablename] drop column [column name];
+
+--insert into to table
+insert into tablename(columnname) values ();
+
+--update 
+update [tablenae] set col1=value,col2=value,col3=value where id;
+
+--delete
+delete from [tablename] where [colname]=id;
+
+--ALIAS
+select name as student_name from students;
+and if there is space between students and names then :
+select name as "student name" from students;
+
+
+conditions such as and, or ;
+order by desc or asc;
+limit; --select * from tablename limit ;
+offset kitni limit top se chorni h ;--select * from students limit 3 offset 2;
+count , sum , average thes eare aggregates;
+count -- select count(id) from students;
+
+
+--string function 
+1)length - select length("aarushi saini");
+select name , length(name) from students;
+
+2)concat (str1,str2)
+select concat (str1,str2) from tablename;
+
+3)LCASE --lowercase;
+Ucase --uppercase;
+SELECT LCASE(STR);
+
+4) substring(str,start,length)-extract part of the string;
+imp-(indexing starts form 1 so never use for start as 0 because it will not give any result);
+
+
+5)--trim (to remove leading and trailing spaaces");
+select trim ("  dklo    ");
+
+6)reverse string
+select reverse("shjk");
+
+
+7)to compare two strings there is function name as strcmp(str1,str2)-compares two string
+
+if string1 = string2, this function returns 0;
+if string 1<string2 , this function returns -1;
+if string 1> string 2, this function returns 1;
+
+
+other important functions :
+
+1)curdate()--return the current date ;
+2) curtime()--return the current time;
+3)now()--return the current date and time;
+4)if(test , yes,no)--return yes if test true else no;
+5) if null (null,"test")--if null then test else value itself;
+6)database()--return the current database;
+version()--return the version of mysql db;
+user()--return the current user;
+select database(),version(),user();
+
+--alternative or"OR "condition:
+IN operator--select * from students where id in(12,89);
+select name,city from students where city in("mumbai","up");
+
+--to drop foreign tbale
+alter table [tablename] drop foreign key[constraint name];
+
+the above relation where one studnet id is there and that id is tag to different laptop and various qual then its know as one to many relationship;
+
+--joins where we have to extract /fetch data from multiple tables;
+
+
+
+
+--like operator most imp:
+pattern wilcards:
+% ==> represent zero character, or multiple characters, or one characters;
+_ ==> represnt single character;
+
+--constraints
+* create foreign key
+--while creating table 
+create table laptop(lid int, model varchar, price int, sid int, foreign key(sid) references [main table/parent table] students (id) );
+--if table already created then method to create after it:
+alter table laptop[tablename] add foreign key (col_name) refernces [parent_table_name](parent_primary_key_col); OR u can use
+ 
+alter table laptop[tablename] add constraints FK_students252 foreign key (col_name) refernces [parent_table_name](parent_primary_key_col); OR u can use
+when foreign key is created then in db its shows as MUL and it means as key allows multiple rows to have the same value.
+
+we make another table names as qualification: 
+create table qual (q_id int(10) primary key not null auto_increment(for automatically increment numbers), degree_yr varchar(4) not null,name varchar(50), other_details varchar(20), sid int(10)--for storing student details, foreign key(sid) references students(id));
+
+Joins
+--Equi join/simple join in which (=) operator is there.
+select s.name,q.name,q.other_details, q.college_fees as "itni college fees iss bache ko bharni padegi" from students as s, qual as q where s.id=q.sid;
+
+--Innner join 
+ select s.name,q.name,q.other_details, q.college_fees as "itni college fees iss bache ko bharni padegi" from students as s INNER JOIN qual as q ON  s.id=q.sid;
+(inner join and equi join results follow same);
+
+
+MORE SQL NOTES TO UPLOAD AS PDF REFER THEM .
