@@ -207,5 +207,133 @@ select s.name,q.name,q.other_details, q.college_fees as "itni college fees iss b
  select s.name,q.name,q.other_details, q.college_fees as "itni college fees iss bache ko bharni padegi" from students as s INNER JOIN qual as q ON  s.id=q.sid;
 (inner join and equi join results follow same);
 
+Operators in SQL :to perform operations on data in sql 
+
+QUERY: select col1 col2 from tablename where conditions (use operator); 
+
+ 
+
+Types of airthmetic opeartors in sql are: 
+
+1) addition 
+
+2) multiplication 
+
+3) subtraction 
+
+4) division 
+
+5)modulus % 
+
+ 
+
+For eg : select * from users where age +1=60; 
+
+ 
+
+Comparison operators in SQL are : 
+
+Equal to (=), not equal to (!= or <>) , greater than (>) , less than (<), greater than or equal to (>=), less than or equal to (<=),  
+
+ 
+
+For eg : select * from users where age > 20; 
+
+ 
+
+Logical operators: 
+
+ 
+
+1) AND : It combines two conditions and return true if both are true . 
+
+For eg : select * from users where city="pune" AND age=25; 
+
+ 
+
+2) OR : it combines two conditions and return true if either of them are true. 
+
+For eg: select * from users where city ="pune" or age >=25; 
+
+ 
+
+3) NOT: it reverse the result of the condition , if there is true then it convert it into false. 
+
+For eg : select * from users where city not in ("pune ", "delhi"); 
+
+ 
+
+IN opeartor : IN (checks if a value matches in a list of values). 
+
+For eg : select * from users where city in ("pune ", "delhi"); 
+
+ 
+
+IS NULL/ IS NOT NULL operators: IS NULL (checks for null values ), IS NOT NULL (checks for not null values) . 
+
+For eg : select * from employee where department is not null; 
+
+Select * from usres where (city and employee_name) is not null; 
+
+ 
+
+BITWISE operators:  AND (&) , OR(|)  
+
+It converts the integer value into bits and then can perform and or operation . 
+
+ 
+
+LIKE and wildcard operators : like operator is used to search for specified pattern in a column . It uses wildcard operators for matching patterns. 
+
+A)   % sign –it matches for any sequence of zero or more characters. 
+
+Query : select * from users where name like 'r%'; here any alphabet after % sign means that names starts with that letter only. 
+
+ 
+
+B)   (___) underscore-it matches for any single character. 
+
+Query : select * from users where name like '__h% '; here I used double times underscore means that the third letter is "h" and before h there is any two letters and after h also there may be any letters or number present . 
+
+ 
+
+BETWEEN operator : checks if a value is within a range of value . 
+
+Query : select * from users where age  between 40 and 50; 
+
+ 
+
+ Clauses in SQL : conditions or tools that helps us to make queries more specific or decide what to fetch . 
+
+For eg : where , group by , having, order by , limit 
+
+Query : select col1 col2 from tablename clause condition; 
+
+ 
+
+1) where clause :filters the rows based on the specified conditions. 
+
+Select * from users where age >12; 
+
+ 
+
+2) LIMIT clause : used to restrict the number of rows returned by a query . His query retrieves the first n rows from the table. 
+
+Query : Select  col1,col2, from tablename LIMIT noforows. 
+
+Select * from users limit 3; 
+
+ 
+
+3) order by clause : used to sort the results in ascending or descending order , by default in fetches the results in ascending order. 
+
+Query : select col1,col2 from  tablename order by  col1(asc/desc) , col2(ac/decs); 
+
+ 
+
+Select userid, name from users order by userid desc; 
+
+select userid , user_name from users order by userid desc limit 2; 
+
 
 MORE SQL NOTES TO UPLOAD AS PDF REFER THEM .
